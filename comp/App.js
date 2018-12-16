@@ -10,46 +10,30 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
+import About from './About.js';
+import TalkToMyHand from './TalkToMyHand.js';
+
+
+const RootStack = createStackNavigator(
+  {
+    Home: About,
+    TalkToMyHand: TalkToMyHand,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
 
 
 
-
-class App extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>App Screen!</Text>
-      </View>
-    );
+    return <AppContainer />;
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: App
-  }
-});
-
-const MyContainer = createAppContainer(AppNavigator);
 
 export default App;
