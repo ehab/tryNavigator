@@ -8,8 +8,13 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-export default class App extends Component {
+
+
+
+
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -37,3 +42,14 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: App
+  }
+});
+
+const MyContainer = createAppContainer(AppNavigator);
+
+export default App;
