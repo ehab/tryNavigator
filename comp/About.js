@@ -7,13 +7,17 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, Button, View} from 'react-native';
 
 export default class About extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>About Screen!</Text>
+        <Button
+          title="Go to TalkToMyHand"
+          onPress={() => this.props.navigation.navigate('TalkToMyHand')}
+        />
       </View>
     );
   }

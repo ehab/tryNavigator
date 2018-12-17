@@ -28,12 +28,8 @@ const AppContainer = createAppContainer(RootStack);
 
 
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return <AppContainer />;
   }
 }
-
-
-
-export default App;

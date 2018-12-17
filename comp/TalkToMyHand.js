@@ -13,7 +13,7 @@ export default class TalkToMyHand extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>App Screen!</Text>
+        <Text style={styles.welcome}>TalkToMyHand Screen!</Text>
       </View>
     );
   }
