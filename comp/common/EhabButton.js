@@ -11,7 +11,11 @@ const EhabButton = (props) => {
   //<TouchableOpacity style={styles.button} onPress={props.m7a7a}>
   //       {props.ehabButtonCaption} Ana  {props.children}
   return (
-       <TouchableOpacity style={styles.button} onPress={props.onPress}><Text> {props.children} </Text></TouchableOpacity>
+       <TouchableOpacity style={styles.button} onPress={props.onPress}>
+        <Text style = {styles.buttonText}>
+          {props.children}
+        </Text>
+       </TouchableOpacity>
     );
 
 
@@ -22,20 +26,22 @@ const EhabButton = (props) => {
 
 const styles = StyleSheet.create({
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    borderColor: 'red',
-    borderBottomColor: 'green',
-    marginLeft: 50,
-    marginRight: 50,
-    marginBottom: 10,
-    marginTop: 50,
-    marginTop: 50,
-
+    height: 45,
+    borderRadius: 5,
+    marginHorizontal: 35,
+    marginVertical: 10,
+    backgroundColor: 'rgb(10,75,48)',
+    justifyContent: 'space-around',
+    flex: 1
   },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 15
+  }
 
-})
+});
 
 // exporting through index.js
 //export default EhabButton;

@@ -9,7 +9,7 @@ import {Text, View} from 'react-native';
 // import EhabButton from './common/EhabButton.js';
 // import Card from './common/Card';
 // import CardItem from './common/CardItem'
-import {EhabButton, Card, CardItem} from './common';
+import {EhabButton, Card, CardItem, Input} from './common';
 
 export default class LoginForm extends Component {
   static navigationOptions = {
@@ -30,11 +30,17 @@ export default class LoginForm extends Component {
   render(){
     return (
       <Card>
+        
+        <CardItem>
+          <Input />
+        </CardItem>
+
         <CardItem>
           <EhabButton>
             Login
           </EhabButton>
         </CardItem>
+
       </Card>
 
     );
