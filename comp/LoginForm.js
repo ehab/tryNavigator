@@ -18,25 +18,47 @@ export default class LoginForm extends Component {
 
   constructor() {
     super();
-    this.state = {condition: 'Unknown condition'};
+    this.state = {
+      condition: 'Unknown condition',
+      username: '',
+      password: ''
+    };
   }
 
-  _onPress(){
-    //this.props.navigation.navigate('LoginForm');
-    //console.log('_onPress code z b-ng accessed!' + Date());
-    this.props.navigation.navigate('Home');
+  //this.props.navigation.navigate('LoginForm');
+  //console.log('_onPress code z b-ng accessed!' + Date());
+  //this.props.navigation.navigate('Home');
+  //console.log('UserName: ${this.state.username} Password: is {thi.state.password}');
+  _onLoginPressed() {
+    console.log(this.state.username)
   }
 
   render(){
     return (
       <Card>
-        
+
         <CardItem>
-          <Input />
+          <Input
+          label = 'email'
+          placeholder = 'Enter your email'
+          secureTextEntry={false}
+          onChangeText={(name) => this.setState({username: name})}
+        />
         </CardItem>
 
         <CardItem>
-          <EhabButton>
+          <Input
+          label = 'Password'
+          placeholder = 'Enter your Password'
+          secureTextEntry={true}
+          onChangeText={(password) => this.setState({password})}
+          //cleaner format sice username: username
+          //onChangeText={(password) => this.setState({password: password})}
+        />
+        </CardItem>
+
+        <CardItem>
+          <EhabButton onPress={() => this._onLoginPressed()}>
             Login
           </EhabButton>
         </CardItem>
