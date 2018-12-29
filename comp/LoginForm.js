@@ -4,14 +4,17 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
 // importing using D-structure {} through index.js
 // import EhabButton from './common/EhabButton.js';
 // import Card from './common/Card';
 // import CardItem from './common/CardItem'
 import {EhabButton, Card, CardItem, Input} from './common';
+//commented and imported connect!
+//import {Text, View} from 'react-native';
+import {connect} from 'react-redux';
+import {loginUser} from './actions';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   static navigationOptions = {
     title: 'LoginForm',
   };
@@ -19,7 +22,6 @@ export default class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
-      condition: 'Unknown condition',
       username: '',
       password: ''
     };
@@ -30,8 +32,14 @@ export default class LoginForm extends Component {
   //this.props.navigation.navigate('Home');
   //console.log('UserName: ${this.state.username} Password: is {thi.state.password}');
   _onLoginPressed() {
-    console.log(this.state.username)
+    // console.log(this.state.username)
+    // after introducing redux
+    const {username, password} = this.state;
+    // same as const username = this.state.username and
+    //         const password = this.state.password
+    this.props.loginUser({username, password});
   }
+
 
   render(){
     return (
@@ -71,3 +79,6 @@ export default class LoginForm extends Component {
   //onPress ={this._onPress}>
   //this.props.navigation.navigate('LoginForm');
 }
+
+//export default LoginForm;
+export default connect(null, {loginUser})(LoginForm);
