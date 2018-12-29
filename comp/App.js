@@ -15,6 +15,9 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducers from './reducers';
 
+//console.log('reducers... from App');
+//console.log(reducers);
+
 
 export default class App extends React.Component {
   render() {
