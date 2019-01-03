@@ -13,6 +13,7 @@ import {EhabButton, Card, CardItem, Input} from './common';
 //import {Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import {loginUser} from './actions';
+import {Spinner} from './common/Spinner';
 
 class LoginForm extends Component {
   static navigationOptions = {
@@ -40,6 +41,16 @@ class LoginForm extends Component {
     this.props.loginUser({username, password});
   }
 
+renderButton(){
+  if (this.props.loading) {
+    return <Spinner />;
+  }
+  return (
+    <EhabButton onPress={() => this._onLoginPressed()}>
+      Login
+    </EhabButton>
+  )
+}
 
   render(){
     return (
@@ -66,9 +77,7 @@ class LoginForm extends Component {
         </CardItem>
 
         <CardItem>
-          <EhabButton onPress={() => this._onLoginPressed()}>
-            Login
-          </EhabButton>
+          {this.renderButton()}
         </CardItem>
 
       </Card>
@@ -80,5 +89,12 @@ class LoginForm extends Component {
   //this.props.navigation.navigate('LoginForm');
 }
 
+const mapStateToProps = state => {
+  return {
+    error:  state.auth.error,
+    loading:  state.auth.loading,
+    user: state.auth.user
+  }
+}
 //export default LoginForm;
-export default connect(null, {loginUser})(LoginForm);
+export default connect(mapStateToProps, {loginUser})(LoginForm);
